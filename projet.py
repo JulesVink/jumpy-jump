@@ -11,19 +11,19 @@ menu.title('Jumpy jump-Menu')
 canv=Canvas(fen,width=999,height=399,bg='blue') 
 canv.grid()
 def question_menu(str):
-    showinfo('Question piège','IL EST PAS BIEN NOTRE JEU ?')
+    showinfo('Question piège / Trick question','IL EST PAS BIEN NOTRE JEU ?/ YOU DON T LIKE OUR GAME ?')
     fen.destroy()
     menu.destroy()
 def commandes(str):
-    showinfo('Commandes','Vous incarnez le dernier Pacman survivant sur Pluton combattant les démoniaques formes rouges. Appuyez sur la flèche du haut pour sauver votre vie en utilisant votre jetpack')	
+    showinfo('Commandes/ Controls','Vous incarnez le dernier Pacman survivant sur Pluton combattant les démoniaques formes rouges. Appuyez sur la flèche du haut pour sauver votre vie en utilisant votre jetpack / You are the last packman on Pluto fiting the evil red geometric shapes . Press any key to use your jetpack . ')	
 def game_over(str):
     global phrase
     global score
     global question
     if score<2:
-        phrase='Vous avez perdu ! Vous avez survécu à ',score,' vague des démoniaques formes rouges. Voulez-vous recommencer ?'
+        phrase='Vous avez perdu ! Vous avez survécu à ',score,' vague des démoniaques formes rouges. Voulez-vous recommencer ? / You lost ! You survived ,'score', wave of evil geometric shape. Do you want to try again ?  '
     else:   
-        phrase='Vous avez perdu ! Vous avez survécu à ',score,' vagues des démoniaques formes rouges. Voulez-vous recommencer ?'
+        phrase='Vous avez perdu ! Vous avez survécu à ',score,' vagues des démoniaques formes rouges. Voulez-vous recommencer ?/ You lost ! You survived ,'score', wave of evil geometric shape. Do you want to try again ? '
     question=askyesno("Game over",phrase)
     if question==True:
         recommencer()
@@ -208,15 +208,15 @@ f9=canv.create_text(800,20,text=score,anchor='w',font=('Times', '25'),fill='whit
 titre=Label(menu,text='Jumpy Jump',fg='red',height=2,font=('Times','25')).pack()
 sous_titre=Label(menu,text='Jeu développé par Jules Vink et Baptiste Vié en ICN, 2017-2018',height=2,fg='black',font=('Times','10')).pack()
 #Boutons
-bouton=Button(fen, text='Fini de jouer ?', command=lambda:question_menu('!'))
+bouton=Button(fen, text='Fini de jouer ? / Want to stop?', command=lambda:question_menu('!'))
 bouton.grid()
 bouton2=Button(fen, bitmap='info', command=lambda:commandes('!'))
 bouton2.grid()
-start=Button(menu, text='Commencer à jouer ?',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:danger('!'))
+start=Button(menu, text='Commencer à jouer ? / Start plaing ?',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:danger('!'))
 start.pack()
-info=Button(menu, text='Commandes',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:commandes('!'))
+info=Button(menu, text='Commandes / Controls',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:commandes('!'))
 info.pack()
-sortir=Button(menu, text='Quitter',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:question_menu('!'))
+sortir=Button(menu, text='Quitter / Quit',activebackground='blue',activeforeground='white',relief='groove',height=2, command=lambda:question_menu('!'))
 sortir.pack()
 fen.bind(sequence="<KeyPress>",func=sauter)
 #Main program
